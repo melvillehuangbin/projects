@@ -1,0 +1,25 @@
+func backtracking;
+
+begin
+    CS := start, SL := [start], NSL := [start], DE := [] %initialize
+    if CS = goal
+        return SL
+    if CS has no children (excluding in DE, NSL SL) and CS is equals to the first element of SL then
+        begin 
+            while SL is not empty and CS = first element of SL do
+                begin
+                    add CS to DE;
+                    remove first element from SL;
+                    remove first element from NSL; 
+                    CS := first element of NSL;
+                end
+            Add CS to SL;
+        end
+    else
+        begin
+            place children of CS to NSL (exlcuding nodes in DE, NSL and SL)
+            CS := first element of NSL
+            add CS to SL;
+        end
+end;
+return FAIL
